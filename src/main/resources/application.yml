@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: one-by-one
+server:
+  port: 9011
