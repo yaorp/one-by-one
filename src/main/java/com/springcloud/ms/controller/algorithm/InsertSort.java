@@ -3,7 +3,7 @@ package com.springcloud.ms.controller.algorithm;
 import java.util.Arrays;
 
 /**
- * 插入排序
+ * 直接插入排序
  * @author: yaorp
  */
 public class InsertSort {
