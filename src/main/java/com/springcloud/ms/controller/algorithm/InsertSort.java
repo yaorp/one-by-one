@@ -20,8 +20,23 @@ public class InsertSort {
         }
     }
 
+    public static void insertSort2(int[] a){
+        // 前面是有序的，后面的一位和前面的比较，比当前数大的话交换位置
+        for (int i=1;i<a.length;i++){
+            int j,x;
+            // 左侧值
+            j=i;
+            x = a[i];
+            while (j>0 && a[j-1]>x){
+                a[j] = a[j-1];
+                j--;
+            }
+            a[j] = x;
+        }
+    }
+
     public static void main(String[] args) {
-        int a[] = { 38,65,97,76,13,27,49 };
+        int a[] = { 1,3,7,2,6,4,5 };
 
         insertSort(a);
         System.out.println(Arrays.toString(a) );
