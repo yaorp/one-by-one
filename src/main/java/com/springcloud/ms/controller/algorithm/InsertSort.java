@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 直接插入排序
+ * 稳定
  * @author: yaorp
  */
 public class InsertSort {

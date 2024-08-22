@@ -2,6 +2,7 @@ package com.springcloud.ms.controller.algorithm;
 
 /**
  * 快速排序
+ * 不稳定
  * @author yaorp
  */
 public class QuickSort {
@@ -58,6 +59,4 @@ public class QuickSort {
             quickSort(a, i+1, r); /* 递归调用 */
         }
     }
-
-
 }
