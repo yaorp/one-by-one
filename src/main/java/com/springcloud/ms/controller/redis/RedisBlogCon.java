@@ -1,6 +1,8 @@
 package com.springcloud.ms.controller.redis;
 
 import com.springcloud.ms.controller.entity.Blog;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.data.geo.*;
 import org.springframework.data.redis.connection.BitFieldSubCommands;
 import org.springframework.data.redis.connection.RedisGeoCommands;
@@ -27,6 +29,32 @@ public class RedisBlogCon {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+
+    @Resource
+    private RedissonClient redissonClient;
+
+    @GetMapping("/distributeLock")
+    public String distributeLock(){
+
+        String lockName = "";
+        RLock lock = redissonClient.getLock(lockName);
+        String message ="";
+        if (lock.tryLock()){
+            try {
+                message = "获取锁成功";
+                System.out.println("获取锁成功");
+                Thread.sleep(10*1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } finally {
+                lock.unlock();
+            }
+        }else {
+            message = "获取锁失败";
+            System.out.println("获取锁失败");
+        }
+        return message;
+    }
 
     @GetMapping("/signCount")
     public Long signCount(String userId){

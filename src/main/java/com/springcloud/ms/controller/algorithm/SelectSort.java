@@ -37,27 +37,29 @@ public class SelectSort {
         System.out.println(Arrays.toString(a));
     }
 
+    /**
+     * 简单选择排序
+     * 每一个数都需要比较
+     * 选出当前的值作为最小值，和前面的值比较，如果比前面的大，替换最小值，并记录位置
+     * 找出最小值后，把最小值放到开始的位置
+     * 继续下一个值的比较
+     */
     public static void selectSort2(int[] a){
         for (int i=0; i<a.length; i++){
-            int j,minInd,x;
-            // 最小数据的位置下标
-            j=i+1;
-            minInd = i;
-            // 最小数据值
-            x=a[i];
-
-            for (; j<a.length; j++){
-                if (a[j]<x){
-                    minInd = j;
-                    x = a[j];
+            int j,minNum,minV;
+            minNum = i;
+            minV = a[i];
+            for (j=i+1; j<a.length; j++){
+                if (a[j]<minV){
+                    minNum = j;
+                    minV = a[j];
                 }
             }
 
-            if (minInd !=i){
-                a[minInd] = a[i];
-                a[i] = x;
+            if (i !=minNum) {
+                a[minNum] = a[i];
+                a[i] = minV;
             }
-
         }
     }
 
