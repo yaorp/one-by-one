@@ -7,7 +7,6 @@ import org.springframework.data.geo.*;
 import org.springframework.data.redis.connection.BitFieldSubCommands;
 import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author: yaorp
@@ -35,24 +35,36 @@ public class RedisBlogCon {
 
     @GetMapping("/distributeLock")
     public String distributeLock(){
-
-        String lockName = "";
+        String lockName = "distributeLock_key";
         RLock lock = redissonClient.getLock(lockName);
         String message ="";
-        if (lock.tryLock()){
+//        lock.tryLock(10,20, TimeUnit.SECONDS);
+
+
+        boolean lockR=false;
+        try {
+            lockR = lock.tryLock(5, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            System.out.println("获取锁异常："+e);
+            throw new RuntimeException(e);
+        }
+
+        if (lockR){
             try {
                 message = "获取锁成功";
                 System.out.println("获取锁成功");
-                Thread.sleep(10*1000);
+                Thread.sleep(60*1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } finally {
                 lock.unlock();
+                System.out.println("释放锁成功");
             }
         }else {
             message = "获取锁失败";
             System.out.println("获取锁失败");
         }
+
         return message;
     }
 
