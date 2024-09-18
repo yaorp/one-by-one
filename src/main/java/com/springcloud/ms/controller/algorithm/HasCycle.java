@@ -35,6 +35,24 @@ public class HasCycle {
         return false;
     }
 
+    /**
+     * 快慢指针相差1，快指针每次移动两个，慢指针每次移动一个，他们相遇则为环，快指针为null，则不为环
+     * @param head
+     * @return
+     */
+    public static boolean hasCycle3(ListNode head){
+        ListNode slow = head;
+        ListNode quick = head.next;
+        while (slow !=quick){
+            if (quick ==null || quick.next==null){
+                return false;
+            }
+            slow=slow.next;
+            quick=quick.next.next;
+        }
+
+        return true;
+    }
 
     public static void main(String[] args){
 
@@ -48,10 +66,10 @@ public class HasCycle {
             nextNode.next=node;               //把心节点连起来
             nextNode=nextNode.next;           //当前节点往后移动
         } //当for循环完成之后 nextNode指向最后一个节点，
-        nextNode.next=nodeSta;
+//        nextNode.next=nodeSta;
         nextNode=nodeSta;                     //重新赋值让它指向首节点
 //        print(nextNode);                      //打印输出
-        System.out.println(hasCycle2(nextNode));
+        System.out.println(hasCycle3(nextNode));
 
     }
 
