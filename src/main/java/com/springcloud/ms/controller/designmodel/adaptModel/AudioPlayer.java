@@ -1,11 +1,11 @@
 package com.springcloud.ms.controller.designmodel.adaptModel;
 
 public class AudioPlayer implements MediaPlayer {
-   MediaAdapter mediaAdapter; 
- 
+   MediaAdapter mediaAdapter;
+
    @Override
-   public void play(String audioType, String fileName) {    
- 
+   public void play(String audioType, String fileName) {
+
       //播放 mp3 音乐文件的内置支持
       if(audioType.equalsIgnoreCase("mp3")){
          System.out.println("Playing mp3 file. Name: "+ fileName);         
