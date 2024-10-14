@@ -39,8 +39,6 @@ public class RedisBlogCon {
         RLock lock = redissonClient.getLock(lockName);
         String message ="";
 //        lock.tryLock(10,20, TimeUnit.SECONDS);
-
-
         boolean lockR=false;
         try {
             lockR = lock.tryLock(5, TimeUnit.SECONDS);

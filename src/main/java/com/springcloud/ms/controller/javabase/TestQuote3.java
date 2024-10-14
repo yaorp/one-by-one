@@ -1,8 +1,6 @@
-package com.springcloud.ms.controller.base;
+package com.springcloud.ms.controller.javabase;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.ArrayList;
 
 /**
  * @author: yaorp

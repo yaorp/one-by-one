@@ -1,0 +1,16 @@
+<beans>
+    <bean id="userService" class="com.springcloud.ms.controller.spring.ioctest.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <bean id="userDao" class="com.springcloud.ms.controller.spring.ioctest.dao.UserDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://10.211.55.6:3306/hello?characterEncoding=utf-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="asdasdasd."/>
+    </bean>
+</beans>

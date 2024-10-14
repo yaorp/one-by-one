@@ -106,7 +106,7 @@ public class JmeterTestCon {
             req.setImageStr5(ImageUtil.convertImageToBase64Str(imgPath5));
             req.setImageStr6(ImageUtil.convertImageToBase64Str(imgPath6));
             String url = "http://127.0.0.1:9012/jmeter/test/qrySuc";
-            String httpRspString = HttpClientUtil.doPostJson(url, JSONObject.toJSONString(req));
+//            String httpRspString = HttpClientUtil.doPostJson(url, JSONObject.toJSONString(req));
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(System.currentTimeMillis() - start);

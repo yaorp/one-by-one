@@ -1,4 +1,4 @@
-package com.springcloud.ms.controller.base;
+package com.springcloud.ms.controller.javabase;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,4 @@
-package com.springcloud.ms.controller.base;
-
-import java.util.ArrayList;
+package com.springcloud.ms.controller.javabase;
 
 /**
  * @author: yaorp
