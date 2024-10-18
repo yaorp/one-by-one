@@ -2,6 +2,8 @@ package com.springcloud.ms.controller;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: yaorp
@@ -13,9 +15,11 @@ public class Mytest {
 //        String s = "Ab5cECbad123";
 //        System.out.printf(String.valueOf(symmetry(s)));
 
-        int[] a = new int[]{4,2,1,5,-6,3};
-        sorRang(a);
-        System.out.println(Arrays.toString(a));
+//        List<String> list = Arrays.asList("abc", "bcde", "1234");
+//        List<String> collect = list.stream().filter(item -> item.length() > 3).collect(Collectors.toList());
+//        System.out.println(collect);
+
+
 
     }
 
@@ -57,6 +61,8 @@ public class Mytest {
         }
 
     }
+
+
 
 
 }
