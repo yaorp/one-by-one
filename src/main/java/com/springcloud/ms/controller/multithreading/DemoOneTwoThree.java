@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 执行顺序: 1 -> 2 -> 3
+ * 用condition 执行顺序: 1 -> 2
  * @author: yaorp
  */
 public class DemoOneTwoThree {

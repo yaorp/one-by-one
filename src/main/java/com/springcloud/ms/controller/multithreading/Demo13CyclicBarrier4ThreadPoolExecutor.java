@@ -9,7 +9,7 @@ import java.util.concurrent.*;
  * 1，2线程一块执行
  * @author: yaorp
  */
-public class Demo13CyclicBarrier4 {
+public class Demo13CyclicBarrier4ThreadPoolExecutor {
 
     public static void main(String[] args) {
         CyclicBarrier cb = new CyclicBarrier(2,()->{

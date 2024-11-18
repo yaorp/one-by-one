@@ -2,15 +2,12 @@ package com.springcloud.ms.controller.multithreading;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
- * 用线程池-固定线程池
  * 1，2线程一块执行
  * @author: yaorp
  */
-public class Demo13CyclicBarrier3 {
+public class Demo13CyclicBarrier2Thread {
 
     public static void main(String[] args) {
         CyclicBarrier cb = new CyclicBarrier(2,()->{
@@ -22,20 +19,19 @@ public class Demo13CyclicBarrier3 {
             }
 
         });
+        Thread t1 = new Thread(new CyclicBarrierDemo(cb),"线程1");
+        Thread t2 = new Thread(new CyclicBarrierDemo(cb),"线程2");
 
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
-        executorService.execute(new CyclicBarrierDemo3(cb));
-        executorService.execute(new CyclicBarrierDemo3(cb));
-        executorService.execute(new CyclicBarrierDemo3(cb));
-        executorService.execute(new CyclicBarrierDemo3(cb));
+        t1.start();
+        t2.start();
 
     }
 }
 
-class CyclicBarrierDemo3 implements Runnable{
+class CyclicBarrierDemo implements Runnable{
     private CyclicBarrier cb;
 
-    public CyclicBarrierDemo3(CyclicBarrier cb){
+    public CyclicBarrierDemo(CyclicBarrier cb){
         this.cb = cb;
     }
 
