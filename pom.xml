@@ -62,7 +62,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <scope>4.12</scope>
+      <version>4.13.2</version>
     </dependency>
 
 <!--    prometheus监控-->
@@ -122,6 +122,25 @@
       <artifactId>mysql-connector-java</artifactId>
       <version> 8.0.25</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.4.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.springcloud.ms</groupId>
+      <artifactId>wrap-spring-boot-starter</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
   </dependencies>
 
   <!-- 打包格式 -->
@@ -129,6 +148,23 @@
 
   <!-- 打包插件 -->
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.yml</include>
+        </includes>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>

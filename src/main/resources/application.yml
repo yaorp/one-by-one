@@ -6,6 +6,15 @@ spring:
     port: 6379
     password: 123456
     database: 0
+
+  datasource:
+#    pd
+    url: jdbc:mysql://10.211.55.6:3306/hello?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+#    docker
+#    url: jdbc:mysql://localhost:3306/hello?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: asdasdasd.
+
 server:
   port: 9011
 
@@ -18,3 +27,15 @@ management:
   metrics:
     tags:
       application=${spring.application.name}:
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+wrap:
+  prefix: -----
+  suffix: +++++
+  enable: false
+
+
+
