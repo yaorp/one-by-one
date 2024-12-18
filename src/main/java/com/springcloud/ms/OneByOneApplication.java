@@ -19,8 +19,7 @@ public class OneByOneApplication {
     }
 
     @Bean
-    MeterRegistryCustomizer<MeterRegistry> configurer(
-            @Value("${spring.application.name}") String applicationName) {
+    MeterRegistryCustomizer<MeterRegistry> configurer(@Value("${spring.application.name}") String applicationName) {
         return (registry) -> registry.config().commonTags("application", applicationName);
     }
 }
