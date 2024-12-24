@@ -22,6 +22,7 @@ public class DemoOneTwoThree {
         Thread t1 = new Thread(new TestThread(cd1),"t1");
         t1.start();
         try {
+            // 会等待计数器的值为0，才会往下继续执行
             cd1.await();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

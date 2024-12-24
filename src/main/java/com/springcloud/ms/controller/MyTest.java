@@ -2,6 +2,7 @@ package com.springcloud.ms.controller;
 
 import com.springcloud.ms.entity.User;
 import com.springcloud.ms.mapper.UserMapper;
+import io.lettuce.core.RedisClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,8 @@ public class MyTest {
     @Resource
     private UserMapper userMapper;
 
+    @Resource
+    private RedisClient redisClient;
     public static void main(String[] args) {
 //        String s = new String("a"+"b");
 //        String s = "Ab5cECbad123";

@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
  */
 @RestController
 @RequestMapping("/blog")
-public class RedisBlogCon {
+public class RedisBaseCon {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
