@@ -2,6 +2,9 @@ spring:
   application:
     name: one-by-one
   redis:
+#    pd
+#    host: 10.211.55.6
+#    docker
     host: 10.211.55.6
     port: 6379
     password: 123456

@@ -4,6 +4,30 @@
     <select id="qryUsers" resultType="com.springcloud.ms.entity.User" >
         select * FROM user
     </select>
+
+    <select id="qryEBike" resultType="java.util.Map">
+        select ID,NAME,ID_CARD,MOBILE from SYN_E_BIKE_V2_202503
+    </select>
+
+    <select id="qryOrder" resultType="java.util.Map">
+        select ID,ID_CARD,ID_CARD_D from DETAIL_ORDER_INFO_V2_202503
+    </select>
+
+    <select id="qryStatus" resultType="java.util.Map">
+        select ID,NAME,ID_CARD,MOBILE from SYN_RIDER_CAREER_INFO_STATUS_V2_202503
+    </select>
+
+    <select id="upateEBike" >
+        update SYN_E_BIKE_V2_202503 set NAME_D=#{nameD},ID_CARD_D=#{idCardD},MOBILE_D=#{mobileD} where ID=#{id}
+    </select>
+
+    <select id="upateOrder" >
+        update DETAIL_ORDER_INFO_V2_202503 set ID_CARD_D=#{idCardD} where ID=#{id}
+    </select>
+
+    <select id="upateStatus" >
+        update SYN_RIDER_CAREER_INFO_STATUS_V2_202503 set NAME_D=#{nameD},ID_CARD_D=#{idCardD},MOBILE_D=#{mobileD} where ID=#{id}
+    </select>
 </mapper>
 
 
