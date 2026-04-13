@@ -1,17 +1,11 @@
-package com.springcloud.ms.entity;
+package com.springcloud.ms.pojo.dto;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Builder;
 import lombok.Data;
 
-/**
- * @author: yaorp
- */
 @Data
 @Builder
-@TableName("user")
-public class User {
-
+public class AddUserDto {
     /**
      * 主键
      */
@@ -32,5 +26,4 @@ public class User {
      * 地址
      */
     private String address;
-
 }
