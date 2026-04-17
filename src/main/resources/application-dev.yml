@@ -1,0 +1,47 @@
+spring:
+  redis:
+    #    pd
+    #    host: 10.211.55.6
+    #    docker
+    host: 127.0.0.1
+    port: 6379
+    #    password: 123456
+    database: 0
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    pd
+    #    url: jdbc:mysql://10.211.55.6:3306/hello?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    #    docker
+    url: jdbc:mysql://localhost:3306/hello?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: asdasdasd.
+
+# prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'  # 通过web方式，暴露所有端点
+  metrics:
+    tags:
+      application=${spring.application.name}:
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+#    log-impl:  org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mapper/**/*.xml
+
+#logging:
+#  config: classpath:logback-spring.xml
+
+wrap:
+  prefix: -----
+  suffix: +++++
+  enable: true
+
+
+
+
+

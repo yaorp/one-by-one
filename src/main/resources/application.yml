@@ -1,46 +1,11 @@
-spring:
-  application:
-    name: one-by-one
-  redis:
-#    pd
-#    host: 10.211.55.6
-#    docker
-    host: 127.0.0.1
-    port: 6379
-#    password: 123456
-    database: 0
-
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-#    pd
-#    url: jdbc:mysql://10.211.55.6:3306/hello?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
-#    docker
-    url: jdbc:mysql://localhost:3306/hello?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
-    username: root
-    password: asdasdasd.
-
 server:
   port: 9011
+spring:
+  profiles:
+    active: dev
+  application:
+    name: one-by-one
 
-# prometheus
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'  # 通过web方式，暴露所有端点
-  metrics:
-    tags:
-      application=${spring.application.name}:
-
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath:/mapper/**/*.xml
-
-wrap:
-  prefix: -----
-  suffix: +++++
-  enable: true
-
-
-
+# 删除 logging 下面所有关于 level, file, pattern 的配置，全部交由 XML 管理
+logging:
+  config: classpath:logback-spring.xml
