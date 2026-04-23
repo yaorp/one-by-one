@@ -6,7 +6,6 @@ import org.springframework.util.StringUtils;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -20,7 +19,7 @@ public class AesUtil {
      */
     private static final String ALGORITHMSTR = "AES/ECB/PKCS5Padding";
 
-    private static ConcurrentHashMap<String, Cipher> cipherMap = new ConcurrentHashMap();
+    private static ConcurrentHashMap<String, Cipher> cipherMap = new ConcurrentHashMap<>();
 
     /**
      * 将base 64 code AES解密
@@ -30,7 +29,7 @@ public class AesUtil {
      * @return 解密后的string
      */
     public static String aesDecrypt(String encryptStr) throws Exception {
-        return StringUtils.isEmpty(encryptStr) ? null : aesDecryptByBytes(base64Decode(encryptStr), KEY);
+        return StringUtils.hasText(encryptStr) ? aesDecryptByBytes(base64Decode(encryptStr), KEY) : null;
     }
 
     /**
@@ -43,7 +42,7 @@ public class AesUtil {
      *             抛出异常
      */
     private static byte[] base64Decode(String base64Code) throws Exception {
-        return StringUtils.isEmpty(base64Code) ? null : DatatypeConverter.parseBase64Binary(base64Code);
+        return StringUtils.hasText(base64Code) ? Base64.decodeBase64(base64Code) : null;
     }
 
     /**

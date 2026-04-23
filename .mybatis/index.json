@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "timestamp": 1776952566192,
+  "projectRoot": "/Users/yaorp/code/cursor/one-by-one",
+  "entries": [
+    {
+      "path": "target/classes/com/springcloud/ms/OneByOneApplication.class",
+      "mtime": 1776952565291.2249,
+      "size": 2526,
+      "mapperScan": {
+        "basePackages": [
+          "com.springcloud.ms.mapper"
+        ],
+        "sourceFile": "/Users/yaorp/code/cursor/one-by-one/target/classes/com/springcloud/ms/OneByOneApplication.class"
+      }
+    }
+  ]
+}

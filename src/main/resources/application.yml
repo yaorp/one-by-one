@@ -9,3 +9,7 @@ spring:
 # 删除 logging 下面所有关于 level, file, pattern 的配置，全部交由 XML 管理
 logging:
   config: classpath:logback-spring.xml
+
+jwt:
+  secret: change-this-to-a-strong-secret-key
+  expire: 3600000
