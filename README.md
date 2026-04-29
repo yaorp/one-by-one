@@ -2,7 +2,7 @@
 
 ## JWT 登录鉴权快速验证
 
-1. 执行初始化脚本：`src/main/resources/sql/init-auth.sql`
+1. 执行初始化脚本：`src/main/resources/sql/init-auth.sql`（会创建 `auth_user` 表并插入测试账号，不再改 `user` 表）
 2. 启动应用后调用登录接口：
    - `POST /auth/login`
    - Body:

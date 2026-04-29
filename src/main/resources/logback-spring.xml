@@ -16,7 +16,8 @@
     <logger name="org.springframework.jdbc" level="DEBUG"/>
     <logger name="org.mybatis" level="DEBUG"/>
     <logger name="com.baomidou" level="DEBUG"/>
-    <logger name="com.zaxxer.hikari" level="DEBUG"/>
+    <!-- Hikari 的 housekeeper 在 DEBUG 会定期打 Pool stats，通常不需要 -->
+    <logger name="com.zaxxer.hikari" level="INFO"/>
     <logger name="com.example" level="DEBUG"/>
 
 <!--    业务服务日志   -->

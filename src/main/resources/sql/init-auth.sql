@@ -1,12 +1,16 @@
--- 登录鉴权最小初始化脚本（MySQL 8）
--- 1) 给 user 表补 password 字段（若已存在请忽略这条报错）
-ALTER TABLE user ADD COLUMN password VARCHAR(100) NULL COMMENT 'BCrypt密码哈希';
+-- 登录认证专用表（与业务 user 表分离）
+-- MySQL 8
 
--- 2) 为用户名增加唯一索引（若已存在请忽略这条报错）
-ALTER TABLE user ADD UNIQUE INDEX uk_user_username (username);
+CREATE TABLE IF NOT EXISTS auth_user (
+  id         BIGINT      NOT NULL COMMENT '主键，雪花ID',
+  username   VARCHAR(100) NOT NULL COMMENT '登录名',
+  password   VARCHAR(100) NOT NULL COMMENT 'BCrypt 密码哈希',
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_auth_user_username (username)
+) COMMENT='登录鉴权用户';
 
--- 3) 初始化测试账号：admin / 123456
+-- 测试账号：admin / 123456（id 为便于本地联调的固定值；应用内新增用户由雪花算法生成）
 -- BCrypt("123456") = $2a$10$b516ublgNOOJvRx37a6yj.5YyuPJsJNcCiMJulpClBDbrpIbcLwyS
-INSERT INTO user (id, username, password, birthday, sex, address)
-VALUES ('1', 'admin', '$2a$10$b516ublgNOOJvRx37a6yj.5YyuPJsJNcCiMJulpClBDbrpIbcLwyS', NULL, NULL, NULL)
+INSERT INTO auth_user (id, username, password)
+VALUES (1987654321098123456, 'admin', '$2a$10$b516ublgNOOJvRx37a6yj.5YyuPJsJNcCiMJulpClBDbrpIbcLwyS')
 ON DUPLICATE KEY UPDATE password = VALUES(password);

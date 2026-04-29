@@ -157,6 +157,12 @@
       <version>3.5.15</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-jsqlparser</artifactId>
+      <version>3.5.15</version>
+    </dependency>
+
 <!--    <dependency>-->
 <!--      <groupId>com.springcloud.ms</groupId>-->
 <!--      <artifactId>wrap-spring-boot-starter</artifactId>-->

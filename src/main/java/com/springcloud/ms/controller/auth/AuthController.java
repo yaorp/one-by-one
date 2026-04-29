@@ -50,7 +50,8 @@ public class AuthController {
                     .status(HttpStatus.UNAUTHORIZED)
                     .body(R.fail("401", "用户名或密码错误"));
         }
-        String token = jwtTokenProvider.generateToken(authUser.getId(), authUser.getUsername());
+        String token = jwtTokenProvider.generateToken(
+                String.valueOf(authUser.getId()), authUser.getUsername());
         long expireAt = System.currentTimeMillis() + jwtTokenProvider.getExpireMillis();
         return ResponseEntity.ok(R.success(new LoginResponse(token, expireAt)));
     }
