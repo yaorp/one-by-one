@@ -17,6 +17,19 @@ spring:
     username: root
     password: asdasdasd.
 
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: one-by-one-producer-group
+  demo:
+    topic: one-by-one-demo-topic
+    consumer-group: one-by-one-demo-consumer-group
+    tag: demo
+    blocking-topic: one-by-one-blocking-demo-topic
+    blocking-consumer-group: one-by-one-blocking-demo-consumer-group
+    blocking-tag: blocking
+    blocking-sharding-key: blocking-demo
+
 # prometheus
 management:
   endpoints:
@@ -40,8 +53,6 @@ wrap:
   prefix: -----
   suffix: +++++
   enable: true
-
-
 
 
 
